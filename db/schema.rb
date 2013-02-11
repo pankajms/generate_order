@@ -12,5 +12,11 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20130210192649) do
-
+  create_table :account_requests do |t|
+    t.string :email
+    t.string :name
+    t.string :web_context_name
+    t.boolean :confirmed
+  end
 end
+
