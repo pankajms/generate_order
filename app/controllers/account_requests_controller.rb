@@ -44,6 +44,9 @@ class AccountRequestsController < ApplicationController
 
     respond_to do |format|
       if @account_request.save
+
+        AccountRequestMailer.welcome_email(@account_request).deliver
+
         format.html { redirect_to @account_request, notice: 'Account request was successfully created.' }
         format.json { render json: @account_request, status: :created, location: @account_request }
       else
