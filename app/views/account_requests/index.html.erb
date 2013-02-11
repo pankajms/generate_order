@@ -1,0 +1,31 @@
+<h1>Account Requests</h1>
+
+<br/>
+
+<table class="table table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Account name</th>
+    <th>Confirmed</th>
+    <!--<th></th>-->
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @account_requests.each do |account_request| %>
+  <tr>
+    <td><%= account_request.name %></td>
+    <td><%= account_request.email  %></td>
+    <td><%= account_request.web_context_name %></td>
+    <td><%= account_request.confirmed %></td>
+    <!--<td><%= link_to 'Show', account_request %></td>-->
+    <td><%= link_to '', edit_account_request_path(account_request), :class=>'icon-pencil' %></td>
+    <td><%= link_to '', account_request, method: :delete, data: { confirm: 'Are you sure?' }, :class=>'icon-trash' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Account request', new_account_request_path, :class=>'btn' %>
